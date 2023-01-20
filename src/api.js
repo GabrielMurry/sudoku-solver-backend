@@ -15,7 +15,7 @@ router.get("/", (req, res) => {
   });
 });
 
-app.post("/solve", (req, res) => {
+router.post("/solve", (req, res) => {
   const options = {
     method: "POST",
     url: "https://solve-sudoku.p.rapidapi.com/",
