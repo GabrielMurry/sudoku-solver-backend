@@ -5,7 +5,11 @@ const serverless = require("serverless-http");
 const app = express();
 const router = express.Router();
 const cors = require("cors");
-app.use(cors());
+
+const corsOptions = {
+  // needed. for get request, this is all we need
+  origin: "https://sudoku-solver-frontend.vercel.app/",
+};
 
 router.get("/", (req, res) => {
   res.json({
@@ -13,7 +17,9 @@ router.get("/", (req, res) => {
   });
 });
 
-router.post("/solve", cors(), (req, res) => {
+app.options("/solve", cors(corsOptions)); // helps with post requests
+
+router.post("/solve", cors(corsOptions), (req, res) => {
   const options = {
     method: "POST",
     url: "https://solve-sudoku.p.rapidapi.com/",
