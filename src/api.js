@@ -3,6 +3,7 @@ const axios = require("axios").default;
 require("dotenv").config();
 const serverless = require("serverless-http");
 const app = express();
+const router = express.Router();
 const cors = require("cors");
 app.use(cors());
 router.use(cors());
