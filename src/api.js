@@ -3,7 +3,6 @@ const axios = require("axios").default;
 require("dotenv").config();
 const serverless = require("serverless-http");
 const app = express();
-const router = express.Router();
 const cors = require("cors");
 app.use(cors());
 router.use(cors());
@@ -23,7 +22,7 @@ router.get("/", (req, res) => {
 
 router.options("/solve", cors(corsOptions)); // helps with post requests
 
-router.post("/solve", cors(corsOptions), (req, res) => {
+router.get("/solve", cors(corsOptions), (req, res) => {
   const options = {
     method: "POST",
     url: "https://solve-sudoku.p.rapidapi.com/",
