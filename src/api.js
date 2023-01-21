@@ -5,6 +5,7 @@ const serverless = require("serverless-http");
 const app = express();
 const router = express.Router();
 const cors = require("cors");
+app.use(cors());
 
 const corsOptions = {
   // needed. for get request, this is all we need
