@@ -12,7 +12,7 @@ const corsOptions = {
   origin: "https://sudoku-solver-frontend.vercel.app/",
 };
 
-router.get("/", (req, res) => {
+app.get("/", (req, res) => {
   res.json({
     hello: "hi!",
   });
@@ -20,7 +20,7 @@ router.get("/", (req, res) => {
 
 app.options("/solve", cors(corsOptions)); // helps with post requests
 
-router.post("/solve", cors(corsOptions), (req, res) => {
+app.post("/solve", cors(corsOptions), (req, res) => {
   const options = {
     method: "POST",
     url: "https://solve-sudoku.p.rapidapi.com/",
