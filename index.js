@@ -7,8 +7,12 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+app.get("/", (req, res) => {
+  res.send("Home endpoint is Working (get)");
+});
+
 app.get("/solve", (req, res) => {
-  res.send("Get is Working");
+  res.send("Solve endpoint is Working (get)");
 });
 
 app.post("/solve", (req, res) => {
