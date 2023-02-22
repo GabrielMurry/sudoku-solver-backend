@@ -1,18 +1,32 @@
-const PORT = 8000;
 const axios = require("axios").default;
 const express = require("express");
 const cors = require("cors");
 require("dotenv").config();
 const app = express();
-app.use(cors());
 app.use(express.json());
+const PORT = 8000;
 
-app.get("/", (req, res) => {
-  res.send("Home endpoint is Working (get)");
+var corsOptions = {
+  origin: "https://sudoku-solver-frontend.vercel.app",
+  optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+};
+
+app.use(cors(corsOptions));
+
+app.use((req, res, next) => {
+  res.setHeader(
+    "Access-Control-Allow-Origin",
+    "https://sudoku-solver-frontend.vercel.app"
+  );
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  next();
 });
 
-app.get("/solve", (req, res) => {
-  res.send("Solve endpoint is Working (get)");
+app.get("/", (req, res) => {
+  res.send("Home endpoint is Working!! (get)");
 });
 
 app.post("/solve", (req, res) => {
