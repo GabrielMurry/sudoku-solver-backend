@@ -4,7 +4,7 @@ const cors = require("cors");
 require("dotenv").config();
 const app = express();
 app.use(express.json());
-const PORT = 8000;
+const port = process.env.PORT || 8000;
 
 var corsOptions = {
   origin: "https://sudoku-solver-frontend.vercel.app",
@@ -53,4 +53,4 @@ app.post("/solve", (req, res) => {
     });
 });
 
-app.listen(PORT, () => console.log(`server listening on PORT ${PORT}`));
+app.listen(port, () => console.log(`server listening on PORT ${port}`));
