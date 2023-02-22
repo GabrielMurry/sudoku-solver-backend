@@ -7,7 +7,7 @@ app.use(express.json());
 const port = process.env.PORT || 8000;
 
 var corsOptions = {
-  origin: "https://sudoku-solver-frontend.vercel.app",
+  origin: "https://solvethesudoku.vercel.app",
   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
 };
 
@@ -16,7 +16,7 @@ app.use(cors(corsOptions));
 app.use((req, res, next) => {
   res.setHeader(
     "Access-Control-Allow-Origin",
-    "https://sudoku-solver-frontend.vercel.app"
+    "https://solvethesudoku.vercel.app"
   );
   res.header(
     "Access-Control-Allow-Headers",
