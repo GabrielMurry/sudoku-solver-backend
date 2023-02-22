@@ -8,6 +8,7 @@ const port = process.env.PORT || 8000;
 
 var corsOptions = {
   origin: "https://solvethesudoku.vercel.app",
+  credentials: true,
   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
 };
 
@@ -20,6 +21,7 @@ app.use((req, res, next) => {
   );
   res.header(
     "Access-Control-Allow-Headers",
+    "Access-Control-Allow-Methods: POST",
     "Origin, X-Requested-With, Content-Type, Accept"
   );
   next();
